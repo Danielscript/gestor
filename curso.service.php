@@ -25,8 +25,14 @@ public function recuperar(){
 }
 
 public function atualizar(){
-    
+    $query = "update tb_cursos set curso = :curso WHERE id = :id";
+    $stmt = $this->conexao->prepare($query);
+    $stmt->bindValue(':curso',$this->curso->__get('curso'));
+    $stmt->bindValue(':id',$this->curso->__get('id'));
+    $stmt->execute();
 }
+	
+	
 public function remover(){
     
 }
