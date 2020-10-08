@@ -13,6 +13,7 @@ public function __get($atributo){
     //com base nesse atributo recebido e encaminha
     public function __set($atributo,$valor){
         $this->$atributo = $valor;
+        return $this;
     }
 }
 ?>
