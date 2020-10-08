@@ -25,4 +25,20 @@ header('Location: novo_curso.php?inclusao=1');
   $cursos = $cursoService->recuperar();
 
 }
+else if($acao == 'atualizar'){
+  $curso = new Curso();
+  $curso->__set('id',$_POST['id']);
+  $curso->__set('curso', $_POST['curso']);
+
+  $conexao = new Conexao();
+
+  $cursoService = new CursoService($conexao, $curso);
+  
+ if($cursoService->atualizar()){
+   header('location: todos_cursos.php');
+ }
+
+
+
+}
 ?>
